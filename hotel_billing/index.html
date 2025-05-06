@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-8">
+        <h1 class="text-3xl font-bold mb-6 text-center text-green-600">Our Delicious Menu</h1>
+
+        <div id="food-items" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <!-- Food items will be dynamically rendered here -->
+        </div>
+
+        <div class="mb-8 p-4 bg-white shadow-md rounded-md">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Your Order</h2>
+            <ul id="selected-items" class="mb-4">
+                <!-- Selected items will be dynamically rendered here -->
+            </ul>
+            <div class="font-semibold text-gray-700">Total: <span id="total-price">₹0.00</span></div>
+        </div>
+
+        <div class="mb-8 p-4 bg-white shadow-md rounded-md">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Delivery Details</h2>
+            <div class="mb-2">
+                <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div class="mb-2">
+                <label for="mobile" class="block text-gray-700 text-sm font-bold mb-2">Mobile Number:</label>
+                <input type="tel" id="mobile" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            </div>
+            <div>
+                <label for="address" class="block text-gray-700 text-sm font-bold mb-2">Address:</label>
+                <textarea id="address" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button id="generate-bill-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Generate Bill</button>
+        </div>
+
+        <div id="bill-section" class="mt-8 p-6 bg-white shadow-md rounded-md hidden">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Bill</h2>
+            <div id="bill-details">
+                <p><span class="font-semibold">Bill No:</span> <span id="bill-number"></span></p>
+                <p><span class="font-semibold">Date:</span> <span id="bill-date"></span></p>
+                <p><span class="font-semibold">Name:</span> <span id="customer-name"></span></p>
+                <p><span class="font-semibold">Mobile:</span> <span id="customer-mobile"></span></p>
+                <p><span class="font-semibold">Address:</span> <span id="customer-address"></span></p>
+                <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-800">Items</h3>
+                <ul id="billed-items" class="mb-4">
+                    <!-- Billed items will be dynamically rendered here -->
+                </ul>
+                <div class="font-semibold text-xl text-gray-700">Total Amount: <span id="bill-total">₹0.00</span></div>
+            </div>
+            <div class="text-center mt-4">
+                <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Print Bill</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
